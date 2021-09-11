@@ -1,6 +1,9 @@
 Repo ingnore folders and files
 config.js
 other/
+client/.idea
+client/.idea/workspace.xml
+client/node_modules
 
 
 IDE folder
