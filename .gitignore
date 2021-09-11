@@ -1,3 +1,8 @@
+Repo ingnore folders and files
+config.js
+other/
+
+
 IDE folder
 .idea/
 .idea/workspace.xml
