@@ -3,7 +3,7 @@ const { HttpServerPort } = require("./config");
 const authServer = require("./authServer/HttpAuthServer");
 const callbackAuthServer = require("./authServer/callbackAuthServer");
 
-//ws require1
+//ws require11
 const connection = require("./websocket").connection;
 const wss = require("./websocket").wss;
 
