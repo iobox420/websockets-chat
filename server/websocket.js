@@ -31,6 +31,7 @@ function connection(ws) {
     }
   });
 }
+
 module.exports.connection = connection;
 
 function broadcastMessage(message) {
