@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useRef, useState } from 'react';
 
 const WebSock = () => {
@@ -12,11 +13,31 @@ const WebSock = () => {
 
   function connect() {
     socket.current = new WebSocket('ws://localhost:5000');
+=======
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
+
+const WebSock = () => {
+  const [messages, setMessages] = useState([]);
+  const [value, setValue] = useState("");
+  const socket = useRef();
+  const [connected, setConnected] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [auth, setAuth] = useState("");
+
+  function connect() {
+    socket.current = new WebSocket("ws://localhost:5000");
+>>>>>>> main
 
     socket.current.onopen = () => {
       setConnected(true);
       const message = {
+<<<<<<< HEAD
         event: 'connection',
+=======
+        event: "connection",
+>>>>>>> main
         username,
         password,
         id: Date.now(),
@@ -28,10 +49,17 @@ const WebSock = () => {
       setMessages((prev) => [message, ...prev]);
     };
     socket.current.onclose = () => {
+<<<<<<< HEAD
       console.log('Socket закрыт');
     };
     socket.current.onerror = () => {
       console.log('Socket произошла ошибка');
+=======
+      console.log("Socket закрыт");
+    };
+    socket.current.onerror = () => {
+      console.log("Socket произошла ошибка");
+>>>>>>> main
     };
   }
 
@@ -44,10 +72,17 @@ const WebSock = () => {
       username,
       message: value,
       id: Date.now(),
+<<<<<<< HEAD
       event: 'message',
     };
     socket.current.send(JSON.stringify(message));
     setValue('');
+=======
+      event: "message",
+    };
+    socket.current.send(JSON.stringify(message));
+    setValue("");
+>>>>>>> main
   };
 
   if (auth) {
@@ -110,7 +145,11 @@ const WebSock = () => {
         <div className="messages">
           {messages.map((mess) => (
             <div key={mess.id}>
+<<<<<<< HEAD
               {mess.event === 'connection' ? (
+=======
+              {mess.event === "connection" ? (
+>>>>>>> main
                 <div className="connection_message">
                   Пользователь {mess.username} подключился
                 </div>
