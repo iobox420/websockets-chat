@@ -1,5 +1,5 @@
 Repo ingnore folders and files
-config.js
+server/config.js
 other/
 other/eventsource.js
 other/longpulling.js
