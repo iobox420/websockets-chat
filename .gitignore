@@ -6,8 +6,7 @@ other/longpulling.js
 client/.idea
 client/.idea/workspace.xml
 client/node_modules
-server/yarn.lock
-client/yarn.lock
+
 
 
 IDE folder
