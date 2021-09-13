@@ -16,7 +16,7 @@ wss.on("connection", connection);*/
 
 async function start() {
   try {
-    console.log('Start connect to mongoDB');
+    console.log('Start connect to mongo DB');
     await mongoose.connect(MongoDbConnectionDriverCode, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
