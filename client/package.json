@@ -20,7 +20,6 @@
     "lint2": "eslint --fix. && echo 'Lint complete.'",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint --fix ."
-
   },
   "eslintConfig": {
     "extends": [
