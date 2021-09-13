@@ -17,7 +17,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix. && echo 'Lint complete.'"
+    "lint2": "eslint --fix. && echo 'Lint complete.'",
+    "lint": "prettier --check . && eslint .",
+    "lint:fix": "prettier --write . && eslint --fix ."
+
   },
   "eslintConfig": {
     "extends": [

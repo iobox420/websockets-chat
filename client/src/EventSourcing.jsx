@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const EventSourcing = () => {
   const [messages, setMessages] = useState([]);
   const [value, setValue] = useState('');
+=======
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const EventSourcing = () => {
+  const [messages, setMessages] = useState([]);
+  const [value, setValue] = useState("");
+>>>>>>> main
 
   useEffect(() => {
     subscribe();
@@ -18,7 +27,11 @@ const EventSourcing = () => {
   };
 
   const sendMessage = async () => {
+<<<<<<< HEAD
     await axios.post('http://localhost:5000/new-messages', {
+=======
+    await axios.post("http://localhost:5000/new-messages", {
+>>>>>>> main
       message: value,
       id: Date.now(),
     });
