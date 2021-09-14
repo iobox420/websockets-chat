@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+/*
+const { Schema } = require('mongoose');
 
 const UserModel = new Schema({
   title: {
@@ -10,3 +11,4 @@ const UserModel = new Schema({
     default: false,
   },
 });
+*/

@@ -1,22 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 
 const WebSock = () => {
   const [messages, setMessages] = useState([]);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const socket = useRef();
   const [connected, setConnected] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [auth, setAuth] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [auth, setAuth] = useState('');
 
   function connect() {
-    socket.current = new WebSocket("ws://localhost:5000");
+    socket.current = new WebSocket('ws://localhost:5000');
 
     socket.current.onopen = () => {
       setConnected(true);
       const message = {
-        event: "connection",
+        event: 'connection',
         username,
         password,
         id: Date.now(),
@@ -28,10 +28,10 @@ const WebSock = () => {
       setMessages((prev) => [message, ...prev]);
     };
     socket.current.onclose = () => {
-      console.log("Socket закрыт");
+      console.log('Socket закрыт');
     };
     socket.current.onerror = () => {
-      console.log("Socket произошла ошибка");
+      console.log('Socket произошла ошибка');
     };
   }
 
@@ -44,10 +44,10 @@ const WebSock = () => {
       username,
       message: value,
       id: Date.now(),
-      event: "message",
+      event: 'message',
     };
     socket.current.send(JSON.stringify(message));
-    setValue("");
+    setValue('');
   };
 
   if (auth) {
@@ -110,7 +110,7 @@ const WebSock = () => {
         <div className="messages">
           {messages.map((mess) => (
             <div key={mess.id}>
-              {mess.event === "connection" ? (
+              {mess.event === 'connection' ? (
                 <div className="connection_message">
                   Пользователь {mess.username} подключился
                 </div>

@@ -17,6 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint2": "eslint --fix. && echo 'Lint complete.'",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint --fix ."
   },
@@ -41,7 +42,9 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.4.0"
   }
 }

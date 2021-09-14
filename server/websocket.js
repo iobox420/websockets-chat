@@ -1,6 +1,6 @@
-const { WebSocketsPort } = require("./config");
+const { WebSocketsPort } = require('./config');
 
-const ws = require("ws");
+const ws = require('ws');
 
 const wss = new ws.Server(
   {
@@ -15,28 +15,29 @@ const wss = new ws.Server(
 module.exports.wss = wss;
 
 function connection(ws) {
-  ws.on("message", function (message) {
+  ws.on('message', function (message) {
     message = JSON.parse(message);
     switch (message.event) {
-      case "message":
+      case 'message':
         broadcastMessage(message);
         break;
-      case "connection":
+      case 'connection':
         broadcastMessage(message);
         break;
-      case "auth":
+      case 'auth':
         break;
-      case "new-user":
+      case 'new-user':
         break;
     }
   });
 }
+
 module.exports.connection = connection;
 
-function broadcastMessage(message, id) {
+function broadcastMessage(message) {
   wss.clients.forEach((client) => {
     client.send(JSON.stringify(message));
   });
 }
 
-function Authentification() {}
+/*function Authentification() {}*/

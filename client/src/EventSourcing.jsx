@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const EventSourcing = () => {
   const [messages, setMessages] = useState([]);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     subscribe();
@@ -18,7 +18,7 @@ const EventSourcing = () => {
   };
 
   const sendMessage = async () => {
-    await axios.post("http://localhost:5000/new-messages", {
+    await axios.post('http://localhost:5000/new-messages', {
       message: value,
       id: Date.now(),
     });
