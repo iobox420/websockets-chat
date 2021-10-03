@@ -1,5 +1,7 @@
 class ApiError extends Error {
+  //eslint-disable-line
   status;
+  //eslint-disable-line
   errors;
   constructor(status, message, errors = []) {
     super(message);

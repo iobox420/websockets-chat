@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './Home.scss';
 import { Link } from 'react-router-dom';
-import { Context } from '../App';
+import { Context } from '../../App';
 
 function Homepage() {
   const [email, setEmail] = useState('iobox420@gmail.com');

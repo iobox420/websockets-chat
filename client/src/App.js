@@ -1,16 +1,13 @@
-import Chat from './chat/Chat';
-
-import Home from './home/Home';
+import Chat from './components/chat/Chat';
+import Home from './components/home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.scss';
 import React, { createContext } from 'react';
-import Store from './store/store';
-
-const store = new Store();
+import store from './store/store';
 
 export const Context = createContext({ store });
 
-function Appmain(props) {
+function Appmain() {
   return (
     <Context.Provider value={{ store }}>
       <React.Fragment>

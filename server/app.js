@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const userController = require('./authServer/controllers/user-controller');
 /*
 
 
@@ -43,7 +42,7 @@ start();
 */
 const express = require('express');
 const app = express();
-
+const userController = require('./authServer/controllers/user-controller');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
@@ -111,7 +110,7 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(8000, () => {
+server.listen(process.env.WS_SERVER_PORT, () => {
   console.log(
     `Socket.IO server listening on http://localhost:${process.env.WS_SERVER_PORT}`
   );

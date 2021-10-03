@@ -7,7 +7,6 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
-    "aes256": "^1.1.0",
     "axios": "^0.22.0",
     "cors": "^2.8.5",
     "mobx": "^6.3.3",
@@ -16,6 +15,7 @@
     "query-string": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-dotenv": "^0.1.3",
     "react-hooks": "^1.0.1",
     "react-lottie": "^1.2.3",
     "react-redux": "^7.2.3",
@@ -28,10 +28,10 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-dotenv && react-scripts start",
+    "build": "react-dotenv && react-scripts build",
+    "test": "react-dotenv && react-scripts test",
+    "eject": "react-dotenv && react-scripts eject",
     "lint2": "eslint --fix. && echo 'Lint complete.'",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint --fix ."

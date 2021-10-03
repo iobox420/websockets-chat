@@ -1,20 +1,22 @@
 import { io } from 'socket.io-client';
 import store from '../store/store';
+import env from 'react-dotenv';
 
-export class Socket {
+class Socket {
   constructor() {
-    this.socket = io('localhost:8000', {
+    console.log(env.WS_SERVER);
+    this.socket = io(env.WS_SERVER, {
       autoConnect: true,
       closeOnBeforeunload: false,
       reconnection: true,
     });
   }
 
-  Open() {
+  async open() {
     this.socket.open();
   }
 
-  OnConnect() {
+  async onConnect() {
     this.socket.on('connect', () => {
       console.log('socket - connected');
       this.socket.emit('auth', store.getAuthDataForWS());
@@ -22,7 +24,7 @@ export class Socket {
     });
   }
 
-  OnDisconnect() {
+  async onDisconnect() {
     this.socket.on('disconnect', () => {
       console.log('socket - disconnect');
       store.setConnection(false);
@@ -32,13 +34,17 @@ export class Socket {
     });
   }
 
-  OnBroadcastMessage() {
+  async onBroadcastMessage() {
     this.socket.on('broadcast-message', (m) => {
       store.setMessages(m);
     });
   }
 
-  SendMessage() {
+  async sendMessage() {
     this.socket.emit('chat-message', store.message);
   }
 }
+
+const socket = new Socket();
+
+export default socket;

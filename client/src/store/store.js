@@ -3,13 +3,14 @@ import AuthService from '../services/AuthService';
 import { API_URL } from '../http';
 import axios from 'axios';
 
-export default class Store {
+class Store {
   //eslint-disable-line
   user = {};
   isAuth = false;
   isLoading = false;
   accessToken = '';
   connection = false;
+  message = '';
   messages = [];
 
   constructor() {
@@ -18,6 +19,10 @@ export default class Store {
 
   setMessage(text) {
     this.message = text;
+  }
+
+  setMessage2(e) {
+    this.message = e.target.value;
   }
 
   setMessages(m) {
@@ -119,3 +124,6 @@ export default class Store {
     };
   }
 }
+
+const store = new Store();
+export default store;
