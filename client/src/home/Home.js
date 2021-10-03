@@ -23,10 +23,10 @@ function Homepage() {
       />
       <Link to={`/chat`}>
         <button onClick={() => store.login(email, password)}>Login</button>
-        <button onClick={() => store.registration(email, password)}>
-          Регистрация
-        </button>
       </Link>
+      <button onClick={() => store.registration(email, password)}>
+        Регистрация
+      </button>
     </div>
   );
 }
