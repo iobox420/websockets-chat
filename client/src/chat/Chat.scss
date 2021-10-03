@@ -1,0 +1,94 @@
+@import '../globals';
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color: mix($foreground-color, white, 50%)
+) {
+  //style for Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: 10px;
+  }
+
+  //style for Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+.chat {
+  width: 400px;
+  height: 600px;
+  background-color: $greyColor;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .user-name {
+    text-align: start;
+    width: 100%;
+    h2 {
+      font-weight: 300;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1rem;
+    }
+  }
+
+  .send {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    input {
+      width: 80%;
+      text-decoration: none;
+      background-color: #404450;
+      border: none;
+      padding-left: 1rem;
+      border-radius: 5px 0px 0px 5px;
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      width: 20%;
+      border: none;
+      background-color: $yellowColor;
+      border-radius: 0px 5px 5px 0px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.auth {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  a {
+    text-decoration: none; /* Убираем подчёркивание */
+  }
+  button {
+    font-weight: 400;
+    color: white;
+    font-family: 'Muli', sans-serif;
+    padding: 15px;
+    border: none;
+    background-color: $yellowColor;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
