@@ -42,6 +42,7 @@ class Socket {
 
   async sendMessage() {
     this.socket.emit('chat-message', store.message);
+    store.message = '';
   }
 }
 
