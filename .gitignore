@@ -6,7 +6,9 @@ other/longpulling.js
 client/.idea
 client/.idea/workspace.xml
 client/node_modules
-
+client/other1
+.env
+frontend/
 
 
 IDE folder
@@ -117,3 +119,4 @@ dist
 
 # TernJS port file
 .tern-port
+/frontend/
