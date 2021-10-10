@@ -1,6 +1,7 @@
 window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "APPDATA": "C:\\Users\\io\\AppData\\Roaming",
+  "AUTH_URL": "http://localhost:5001/api",
   "BROWSER": "none",
   "COMMANDER_DRIVE": "C:",
   "COMMANDER_EXE": "C:\\Windows\\951x32\\951\\TOTALCMD.EXE",
@@ -91,7 +92,7 @@ window.env = {
   "npm_package_version": "0.1.0",
   "NUMBER_OF_PROCESSORS": "6",
   "OS": "Windows_NT",
-  "Path": "C:\\Users\\io\\AppData\\Local\\Temp\\yarn--1633862783705-0.508335329442841;C:\\nodejs\\GIT\\websockets-chat\\client\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Tools\\;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64_win\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files (x86)\\Bitvise SSH Client;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\Print Conductor;C:\\Python27;C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Users\\io\\AppData\\Roaming\\npm;C:\\Program Files (x86)\\Print Conductor;;C:\\Users\\io\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\heroku\\bin",
+  "Path": "C:\\Users\\io\\AppData\\Local\\Temp\\yarn--1633875222455-0.6913964950067948;C:\\nodejs\\GIT\\websockets-chat\\client\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Tools\\;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64_win\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files (x86)\\Bitvise SSH Client;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\Print Conductor;C:\\Python27;C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Users\\io\\AppData\\Roaming\\npm;C:\\Program Files (x86)\\Print Conductor;;C:\\Users\\io\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\heroku\\bin",
   "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
   "PROCESSOR_ARCHITECTURE": "AMD64",
   "PROCESSOR_IDENTIFIER": "AMD64 Family 21 Model 1 Stepping 2, AuthenticAMD",

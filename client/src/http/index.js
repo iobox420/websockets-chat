@@ -1,6 +1,7 @@
 import axios from 'axios';
+import env from 'react-dotenv';
 
-export const API_URL = `http://localhost:5001/api`;
+export const API_URL = env.AUTH_URL;
 
 const $api = axios.create({
   withCredentials: true,
