@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Context } from '../../App';
 
 function Homepage() {
-  const [email, setEmail] = useState('iobox420@gmail.com');
-  const [password, setPassword] = useState('1234');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { store } = useContext(Context);
 
   return (
