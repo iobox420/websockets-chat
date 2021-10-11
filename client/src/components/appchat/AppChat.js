@@ -1,9 +1,9 @@
-import Chat from './components/chat/Chat';
-import Home from './components/home/Home';
+import Chat from '../chat/Chat';
+import Home from '../home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.scss';
 import React, { createContext } from 'react';
-import store from './store/store';
+import store from '../../store/store';
 
 export const Context = createContext({ store });
 
@@ -16,16 +16,16 @@ function Appmain() {
     </Context.Provider>
   );
 }
-function App() {
+function AppChat() {
   return (
     <Context.Provider value={{ store }}>
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/" exact>
+            <Route path="/websockets-chat" exact>
               <Home />
             </Route>
-            <Route path="/chat" component={Appmain} />
+            <Route path="/websockets-chat/chat" component={Appmain} />
           </Switch>
         </div>
       </Router>
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppChat;

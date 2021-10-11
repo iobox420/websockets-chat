@@ -1,7 +1,7 @@
 import './Chat.scss';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useContext } from 'react';
-import { Context } from '../../App';
+import { Context } from '../appchat/AppChat';
 import { Link } from 'react-router-dom';
 import Messages from '../../components/messages/Messages';
 import socket from '../../services/SocketService';

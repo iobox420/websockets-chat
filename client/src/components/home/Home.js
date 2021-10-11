@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './Home.scss';
 import { Link } from 'react-router-dom';
-import { Context } from '../../App';
+import { Context } from '../appchat/AppChat';
 
 function Homepage() {
   const [email, setEmail] = useState('');
@@ -21,11 +21,14 @@ function Homepage() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Link to={`/chat`}>
+      <Link to={`/websockets-chat/chat`}>
         <button onClick={() => store.login(email, password)}>Login</button>
       </Link>
-      <button onClick={() => store.registration(email, password)}>
-        Регистрация
+      <button
+        className="reg"
+        onClick={() => store.registration(email, password)}
+      >
+        Registration
       </button>
     </div>
   );
