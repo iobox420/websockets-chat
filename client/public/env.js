@@ -17,7 +17,7 @@ window.env = {
   "FP_NO_HOST_CHECK": "NO",
   "HOMEDRIVE": "C:",
   "HOMEPATH": "\\Users\\io",
-  "IDEA_INITIAL_DIRECTORY": "c:\\nodejs\\GIT",
+  "IDEA_INITIAL_DIRECTORY": "c:\\nodejs\\GIT\\websockets-chat",
   "INIT_CWD": "C:\\nodejs\\GIT\\websockets-chat\\client",
   "INTEL_DEV_REDIST": "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\",
   "LOCALAPPDATA": "C:\\Users\\io\\AppData\\Local",
@@ -92,7 +92,7 @@ window.env = {
   "npm_package_version": "0.1.0",
   "NUMBER_OF_PROCESSORS": "6",
   "OS": "Windows_NT",
-  "Path": "C:\\Users\\io\\AppData\\Local\\Temp\\yarn--1633947521681-0.731110532010657;C:\\nodejs\\GIT\\websockets-chat\\client\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Tools\\;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64_win\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files (x86)\\Bitvise SSH Client;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\Print Conductor;C:\\Python27;C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Users\\io\\AppData\\Roaming\\npm;C:\\Program Files (x86)\\Print Conductor;;C:\\Users\\io\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\heroku\\bin",
+  "Path": "C:\\Users\\io\\AppData\\Local\\Temp\\yarn--1634103376269-0.7932054262133603;C:\\nodejs\\GIT\\websockets-chat\\client\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Users\\io\\AppData\\Local\\Yarn\\bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Tools\\;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64_win\\compiler;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\nodejs\\;C:\\Program Files\\PuTTY\\;C:\\Program Files (x86)\\Bitvise SSH Client;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\Print Conductor;C:\\Python27;C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Users\\io\\AppData\\Roaming\\npm;C:\\Program Files (x86)\\Print Conductor;;C:\\Users\\io\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\heroku\\bin",
   "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
   "PROCESSOR_ARCHITECTURE": "AMD64",
   "PROCESSOR_IDENTIFIER": "AMD64 Family 21 Model 1 Stepping 2, AuthenticAMD",
@@ -120,8 +120,8 @@ window.env = {
   "windir": "C:\\Windows",
   "windows_tracing_flags": "3",
   "windows_tracing_logfile": "C:\\BVTBin\\Tests\\installpackage\\csilogfile.log",
-  "WS_SERVER": "localhost:5000",
+  "WS_SERVER": "http://localhost:5000/",
   "YARN_WRAP_OUTPUT": "false",
   "_prog": "node",
-  "__INTELLIJ_COMMAND_HISTFILE__": "C:\\Users\\io\\AppData\\Roaming\\JetBrains\\WebStorm2020.2\\terminal\\history\\history-359"
+  "__INTELLIJ_COMMAND_HISTFILE__": "C:\\Users\\io\\AppData\\Roaming\\JetBrains\\WebStorm2020.2\\terminal\\history\\history-408"
 };
