@@ -11,8 +11,25 @@ class UserService {
     const candidate = await UserModel.findOne({ email });
 
     if (candidate) {
-      throw ApiError.BadRequest(`Пользователь с таким ${email} уже существует`);
+      const isPassEquals = await bcrypt.compare(password, candidate.password);
+      if (isPassEquals) {
+        await mailService.sendActivationMail(
+          email,
+          `${process.env.OUTSIDE_API_URL}/api/activate/${candidate.activationLink}`
+        );
+
+        return {
+          status: 1,
+          message: 'Send activation link again',
+        };
+      }
+      if (!isPassEquals) {
+        throw ApiError.BadRequest(
+          `Пользователь с таким ${email} уже существует`
+        );
+      }
     }
+
     const hashPasssword = await bcrypt.hash(password, 3);
     const activationLink = uuid.v4();
     const user = await UserModel.create({
@@ -21,10 +38,15 @@ class UserService {
       activationLink,
     });
 
-    await mailService.sendActivationMail(
-      email,
-      `${process.env.OUTSIDE_API_URL}/api/activate/${activationLink}`
-    );
+    mailService
+      .sendActivationMail(
+        email,
+        `${process.env.OUTSIDE_API_URL}/api/activate/${activationLink}`
+      )
+      .then((r) => console.log(r))
+      .catch((r) => {
+        console.log(r);
+      });
 
     const userDto = new UserDto(user); //id, email, isActivated
     const tokens = tokenService.generateToken({ ...userDto });

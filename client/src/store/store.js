@@ -75,6 +75,24 @@ class Store {
   async registration(email, password) {
     try {
       const response = await AuthService.registration(email, password);
+      /*
+      
+      */
+      if (response.status === 200) {
+        if (response.data.user) {
+          alert('You have successfully registered');
+        }
+
+        if (response.data.message) {
+          alert(response.data.message);
+        }
+      }
+      if (response.status !== 200) {
+        alert('unexpected error ');
+      }
+      /*
+
+      */
       console.log(response);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
