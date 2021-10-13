@@ -24,12 +24,14 @@ function Homepage() {
       <Link to={`/websockets-chat/chat`}>
         <button onClick={() => store.login(email, password)}>Login</button>
       </Link>
-      <button
-        className="reg"
-        onClick={() => store.registration(email, password)}
-      >
-        Registration
-      </button>
+      <Link to={`/websockets-chat/registration`}>
+        <button
+          className="reg"
+          /*onClick={() => store.registration(email, password)}*/
+        >
+          Registration
+        </button>
+      </Link>
     </div>
   );
 }

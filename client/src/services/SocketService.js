@@ -1,11 +1,11 @@
 import { io } from 'socket.io-client';
 import store from '../store/store';
-import env from 'react-dotenv';
+import config from '../config';
 
 class Socket {
   constructor() {
-    console.log(env.WS_SERVER);
-    this.socket = io(env.WS_SERVER, {
+    console.log(config.WS_SERVER);
+    this.socket = io(config.WS_SERVER, {
       autoConnect: true,
       closeOnBeforeunload: false,
       reconnection: true,

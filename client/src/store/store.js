@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import AuthService from '../services/AuthService';
-import { API_URL } from '../http';
+import env from 'react-dotenv';
+
 import axios from 'axios';
 
 class Store {
@@ -80,26 +81,26 @@ class Store {
       */
       if (response.status === 200) {
         if (response.data.user) {
-          alert('You have successfully registered');
+          return 'Sent registration link';
         }
 
         if (response.data.message) {
-          alert(response.data.message);
+          return response.data.message;
         }
       }
       if (response.status !== 200) {
-        alert('unexpected error ');
+        return 'unexpected error ';
       }
       /*
 
       */
-      console.log(response);
+      /*      console.log(response);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
-      this.setUser(response.data.user);
+      this.setUser(response.data.user);*/
     } catch (e) {
       // @ts-ignore
-      console.log(e.response?.data?.message);
+      return e.response?.data?.message;
     }
   }
 
@@ -119,7 +120,7 @@ class Store {
   async checkAuth() {
     this.setLoading(true);
     try {
-      const response = await axios.get(`${API_URL}/refresh`, {
+      const response = await axios.get(`${env.AUTH_URL}/refresh`, {
         withCredentials: true,
       });
       console.log('Check auth', response);

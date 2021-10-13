@@ -24,9 +24,7 @@ class UserService {
         };
       }
       if (!isPassEquals) {
-        throw ApiError.BadRequest(
-          `Пользователь с таким ${email} уже существует`
-        );
+        throw ApiError.BadRequest(`${email} already registered`);
       }
     }
 

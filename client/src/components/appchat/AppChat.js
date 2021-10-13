@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.scss';
 import React, { createContext } from 'react';
 import store from '../../store/store';
+import Registration from '../registration/Registration';
 
 export const Context = createContext({ store });
 
-function Appmain() {
+function Appmain(props) {
   return (
     <Context.Provider value={{ store }}>
       <React.Fragment>
@@ -16,16 +17,56 @@ function Appmain() {
     </Context.Provider>
   );
 }
-function AppChat() {
+
+function TestR(props) {
+  return (
+    <div>
+      форма регистрации
+      <button
+        onClick={() => {
+          props.history.push('/test');
+        }}
+      >
+        {' '}
+        на test
+      </button>
+    </div>
+  );
+}
+
+function AppChat(props) {
   return (
     <Context.Provider value={{ store }}>
       <Router>
         <div className="App">
           <Switch>
             <Route path="/websockets-chat" exact>
-              <Home />
+              <Home history={props.history} />
+              {/**/}
+
+              {/*              <button
+                onClick={() => {
+                  props.history.push('/test');
+                }}
+                className="reg"
+              >
+                Registration1
+              </button>*/}
+
+              {/**/}
             </Route>
-            <Route path="/websockets-chat/chat" component={Appmain} />
+
+            <Route
+              path="/websockets-chat/registration"
+              component={TestR}
+              history={props.history}
+            />
+
+            <Route
+              path="/websockets-chat/chat"
+              component={Appmain}
+              history={props.history}
+            />
           </Switch>
         </div>
       </Router>
