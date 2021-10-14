@@ -1,10 +1,11 @@
 import './Chat.scss';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useContext } from 'react';
-import { Context } from '../appchat/AppChat';
+import { Context } from '../home/Home';
 import { Link } from 'react-router-dom';
 import Messages from '../../components/messages/Messages';
 import socket from '../../services/SocketService';
+import Libton from '../libton/Libton';
 
 function Chat() {
   const { store } = useContext(Context);
@@ -59,9 +60,11 @@ function Chat() {
       <div className="chat">
         <div className="center">Вы не авторизованы</div>
         <div className="devB">
-          <Link to={`/`}>
-            <button className="devB">Перейти на главную</button>
-          </Link>
+          <Libton
+            to={`/websockets-chat`}
+            className="devB"
+            text={'To login page'}
+          />
         </div>
       </div>
     );

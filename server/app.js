@@ -73,7 +73,9 @@ io.on('connection', (socket) => {
     if (socket.room !== 'room-for-auth-users') {
       socket.disconnect();
     }
-    console.log(`broadcast-message: ${message} \r\n to room:${socket.room}`);
+    console.log(
+      `broadcast-message: ${message} \r\n to room:${socket.room}\r\n ${io.engine.clientsCount}`
+    );
     io.to(socket.room).emit('broadcast-message', {
       email: socket.email,
       text: message,

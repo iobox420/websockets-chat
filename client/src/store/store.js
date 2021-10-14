@@ -1,6 +1,5 @@
 import { makeAutoObservable } from 'mobx';
 import AuthService from '../services/AuthService';
-import env from 'react-dotenv';
 
 import axios from 'axios';
 
@@ -67,9 +66,16 @@ class Store {
       console.log(response);
       this.setAuth(true);
       this.setUser(response.data.user);
+      return {
+        type: 'responce',
+        responce: response,
+      };
     } catch (e) {
-      // @ts-ignore
       console.log(e.response?.data?.message);
+      return {
+        type: 'error',
+        message: e.response?.data?.message,
+      };
     }
   }
 

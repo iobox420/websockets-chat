@@ -1,17 +1,36 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Registration.scss';
-import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
-import { Context } from '../appchat/AppChat';
+import { Context } from '../home/Home';
+import Libton from '../libton/Libton';
 
-function Registration(props) {
+const Registration = () => {
   let history = useHistory();
+  const { store } = useContext(Context);
+
+  const Push = () => {
+    console.log('push' + '/websockets-chat');
+    history.push('/websockets-chat');
+  };
+
+  const regButtonHandle = async () => {
+    if (checkPass()) {
+      show('Loading...', true);
+      let result = await store.registration(email, password1);
+      show(result, true);
+      if (result === 'Send activation link again') {
+        setTimeout(() => {
+          history.push('/websockets-chat');
+        }, 3000);
+      }
+    }
+  };
+
   const [email, setEmail] = useState('iobox420@gmail.com');
   const [password1, setPassword1] = useState('');
   const [password2, setPassword2] = useState('');
-  const [password11, setPassword11] = useState('');
-  const [password22, setPassword22] = useState('');
+
   const [informInput, setInformInput] = useState('');
-  const { store } = useContext(Context);
   const [errorStyle, setErrorStyle] = useState({});
 
   const checkPass = () => {
@@ -37,33 +56,14 @@ function Registration(props) {
     }
     setInformInput(text);
   };
-  const onChangePassword1 = (e1) => {
-    setPassword1(e1.target.value);
-    let temp = '';
-    let i = 0;
-    do {
-      temp = temp + '∗';
-      i++;
-    } while (temp.length < e1.target.value.length);
-    setPassword11(temp);
-  };
-
-  const onChangePassword2 = (e2) => {
-    setPassword2(e2.target.value);
-    let temp = '';
-    let i = 0;
-    do {
-      temp = temp + '∗';
-      i++;
-    } while (temp.length < e2.target.value.length);
-    setPassword22(temp);
-  };
 
   return (
-    <Router>
+    <div className="wrapper">
       <div className="homepage">
         <h1 className="title">Enter your login and password to register</h1>
         <input
+          type="email"
+          name="email"
           placeholder="Input your email"
           value={email}
           onChange={(e) => {
@@ -71,14 +71,22 @@ function Registration(props) {
           }}
         />
         <input
+          type="password"
+          name="password"
           placeholder="Input the password"
-          value={password11}
-          onChange={onChangePassword1}
+          value={password1}
+          onChange={(e) => {
+            setPassword1(e.target.value);
+          }}
         />
         <input
+          type="password"
+          name="password"
           placeholder="Input the password"
-          value={password22}
-          onChange={onChangePassword2}
+          value={password2}
+          onChange={(e) => {
+            setPassword2(e.target.value);
+          }}
         />
         <input
           type="text"
@@ -87,45 +95,18 @@ function Registration(props) {
           onChange={() => {}}
           style={errorStyle}
         />
-
-        <button
+        <Libton
+          to={`/websockets-chat/registration`}
           className="reg"
-          onClick={() => {
-            if (checkPass()) {
-              console.log('send data...');
-            }
-          }}
-        >
-          Send
+          onClick={regButtonHandle}
+          text={'Registration'}
+        />
+        <button className="reg" onClick={Push}>
+          Back
         </button>
-        <Link to={`/websockets-chat/registration`}>
-          <button
-            className="reg"
-            onClick={async () => {
-              if (checkPass()) {
-                show('Loading...', true);
-                let result = await store.registration(email, password1);
-                show(result, true);
-                if (result === 'Sent registration link') {
-                  history.push('/websockets-chat');
-                }
-              }
-            }}
-          >
-            Registration
-          </button>
-          <button
-            onClick={() => {
-              console.log('push' + '');
-              history.push('/test');
-            }}
-          >
-            push
-          </button>
-        </Link>
       </div>
-    </Router>
+    </div>
   );
-}
+};
 
 export default Registration;
