@@ -1,5 +1,6 @@
 Repo ingnore folders and files
 server/config.js
+client/src/ config.js
 other/
 other/eventsource.js
 other/longpulling.js
@@ -7,6 +8,7 @@ client/.idea
 client/.idea/workspace.xml
 client/node_modules
 client/other1
+
 .env
 frontend/
 

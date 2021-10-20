@@ -118,3 +118,73 @@ server.listen(process.env.WS_SERVER_PORT, () => {
     `Socket.IO server listening on http://localhost:${process.env.WS_SERVER_PORT}`
   );
 });
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+/*
+const mailjet = require('node-mailjet').connect(
+  process.env.MJ_APIKEY_PUBLIC,
+  process.env.MJ_APIKEY_PRIVATE
+);
+const request = mailjet.post('send', { version: 'v3.1' }).request({
+  Messages: [
+    {
+      From: {
+        Email: 'iobox420@gmail.com',
+        Name: 'Mailjet Pilot',
+      },
+      To: [
+        {
+          Email: '2028future@gmail.com',
+          Name: 'passenger 1',
+        },
+      ],
+      Subject: 'Your email flight plan!',
+      TextPart:
+        'Dear passenger 1, welcome to Mailjet! May the delivery force be with you!',
+      HTMLPart:
+        '<h3>Dear passenger 1, welcome to <a href="https://www.mailjet.com/">Mailjet</a>!</h3><br />May the delivery force be with you!',
+    },
+  ],
+});
+request
+  .then((result) => {
+    console.log('mail jet result', result.body);
+  })
+  .catch((err) => {
+    console.log('mail jet error', err.statusCode);
+  });
+*/
+
+// const MailJetApiService = require('./authServer/service/mail-jet-api-service');
+//
+// MailJetApiService.sendMail('2028future@gmail.com');

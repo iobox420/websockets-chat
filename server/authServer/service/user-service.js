@@ -1,7 +1,7 @@
 const UserModel = require('../models/UserModel');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
-const mailService = require('./mail-service');
+const MailJetApiService = require('./mail-jet-api-service');
 const tokenService = require('./token-service');
 const UserDto = require('../dtos/user-dto');
 const ApiError = require('../exceptions/api-error');
@@ -13,7 +13,7 @@ class UserService {
     if (candidate) {
       const isPassEquals = await bcrypt.compare(password, candidate.password);
       if (isPassEquals) {
-        await mailService.sendActivationMail(
+        await MailJetApiService.sendMail(
           email,
           `${process.env.OUTSIDE_API_URL}/api/activate/${candidate.activationLink}`
         );
@@ -36,14 +36,13 @@ class UserService {
       activationLink,
     });
 
-    mailService
-      .sendActivationMail(
-        email,
-        `${process.env.OUTSIDE_API_URL}/api/activate/${activationLink}`
-      )
-      .then((r) => console.log(r))
-      .catch((r) => {
-        console.log(r);
+    MailJetApiService.sendMail(
+      email,
+      `${process.env.OUTSIDE_API_URL}/api/activate/${activationLink}`
+    )
+      .then((r) => console.log('responce mail service', r))
+      .catch((er) => {
+        console.log('error mail service', er);
       });
 
     const userDto = new UserDto(user); //id, email, isActivated
