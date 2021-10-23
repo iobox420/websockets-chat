@@ -1,5 +1,5 @@
 const ApiError = require('../exceptions/api-error');
-module.exports = function (err, req, res) {
+module.exports = function (err, req, res, next) {
   console.log('error clg');
   console.log(err);
   if (err instanceof ApiError) {

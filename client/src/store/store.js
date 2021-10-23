@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import AuthService from '../services/AuthService';
-import { API_URL } from '../http';
+import config from '../config';
+
 import axios from 'axios';
 
 class Store {
@@ -30,6 +31,16 @@ class Store {
     temp.push({
       email: m.email,
       text: m.text,
+    });
+    this.messages = [...temp];
+  }
+  setOldMessages(oldMessages) {
+    let temp = this.messages;
+    oldMessages.forEach((cur, i) => {
+      temp.push({
+        email: cur.email,
+        text: cur.text,
+      });
     });
     this.messages = [...temp];
   }
@@ -66,22 +77,47 @@ class Store {
       console.log(response);
       this.setAuth(true);
       this.setUser(response.data.user);
+      return {
+        type: 'responce',
+        responce: response,
+      };
     } catch (e) {
-      // @ts-ignore
       console.log(e.response?.data?.message);
+      return {
+        type: 'error',
+        message: e.response?.data?.message,
+      };
     }
   }
 
   async registration(email, password) {
     try {
       const response = await AuthService.registration(email, password);
-      console.log(response);
+      /*
+      
+      */
+      if (response.status === 200) {
+        if (response.data.user) {
+          return 'Sent registration link';
+        }
+
+        if (response.data.message) {
+          return response.data.message;
+        }
+      }
+      if (response.status !== 200) {
+        return 'unexpected error ';
+      }
+      /*
+
+      */
+      /*      console.log(response);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
-      this.setUser(response.data.user);
+      this.setUser(response.data.user);*/
     } catch (e) {
       // @ts-ignore
-      console.log(e.response?.data?.message);
+      return e.response?.data?.message;
     }
   }
 
@@ -101,11 +137,12 @@ class Store {
   async checkAuth() {
     this.setLoading(true);
     try {
-      const response = await axios.get(`${API_URL}/refresh`, {
+      const response = await axios.get(`${config.AUTH_URL}/refresh`, {
         withCredentials: true,
       });
       console.log('Check auth', response);
       localStorage.setItem('token', response.data.accessToken);
+      /* this.isAuth = true;*/
       this.setAuth(true);
       this.setUser(response.data.user);
       this.setAccessToken(response.data.accessToken);
