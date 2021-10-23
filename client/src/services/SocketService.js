@@ -44,6 +44,16 @@ class Socket {
     this.socket.emit('chat-message', store.message);
     store.message = '';
   }
+  async sendMessage2(m) {
+    this.socket.emit('chat-message', m);
+  }
+
+  async onOldMessages() {
+    this.socket.on('old-messages', (res) => {
+      console.log('old messages clg', res);
+      store.setOldMessages(res);
+    });
+  }
 }
 
 const socket = new Socket();

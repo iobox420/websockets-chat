@@ -46,6 +46,7 @@ const userController = require('./authServer/controllers/user-controller');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require('socket.io');
+const SocketMessagesModel = require('./authServer/models/SocketMessagesModel');
 const io = new Server(server, {
   cors: {
     origin: (origin, callback) => {
@@ -76,6 +77,10 @@ io.on('connection', (socket) => {
     console.log(
       `broadcast-message: ${message} \r\n to room:${socket.room}\r\n ${io.engine.clientsCount}`
     );
+    SocketMessagesModel.create({
+      email: socket.email,
+      text: message,
+    });
     io.to(socket.room).emit('broadcast-message', {
       email: socket.email,
       text: message,
@@ -93,9 +98,14 @@ io.on('connection', (socket) => {
         status: 200,
         message: 'Authorized',
       });
-      socket.leave('room-for-auth-users');
+      socket.leave('general');
       socket.join('room-for-auth-users');
       socket.room = 'room-for-auth-users';
+
+      getMessages().then((r) => {
+        io.to(socket.room).emit('old-messages', r);
+      });
+
       console.log(`${socket.email} change room to room-for-auth-users`);
     }
     if (!CheckAccessToken) {
@@ -118,6 +128,13 @@ server.listen(process.env.WS_SERVER_PORT, () => {
     `Socket.IO server listening on http://localhost:${process.env.WS_SERVER_PORT}`
   );
 });
+
+const getMessages = async () => {
+  let arr = await SocketMessagesModel.find().limit(50).sort({ date: 1 });
+  debugger;
+  return arr;
+};
+
 /*
 
 

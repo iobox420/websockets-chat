@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import AuthService from '../services/AuthService';
+import config from '../config';
 
 import axios from 'axios';
 
@@ -30,6 +31,16 @@ class Store {
     temp.push({
       email: m.email,
       text: m.text,
+    });
+    this.messages = [...temp];
+  }
+  setOldMessages(oldMessages) {
+    let temp = this.messages;
+    oldMessages.forEach((cur, i) => {
+      temp.push({
+        email: cur.email,
+        text: cur.text,
+      });
     });
     this.messages = [...temp];
   }
@@ -126,11 +137,12 @@ class Store {
   async checkAuth() {
     this.setLoading(true);
     try {
-      const response = await axios.get(`${env.AUTH_URL}/refresh`, {
+      const response = await axios.get(`${config.AUTH_URL}/refresh`, {
         withCredentials: true,
       });
       console.log('Check auth', response);
       localStorage.setItem('token', response.data.accessToken);
+      /* this.isAuth = true;*/
       this.setAuth(true);
       this.setUser(response.data.user);
       this.setAccessToken(response.data.accessToken);
