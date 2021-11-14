@@ -23,3 +23,13 @@ MJ_APIKEY_PRIVATE =
 WS_SERVER_PORT = 5000
 
 ```
+# /client/src/config.js
+```
+const config = {
+  WS_SERVER: 'http://localhost:5000/',
+  AUTH_URL: 'http://localhost:5001/api',
+};
+
+export default config;
+
+```
