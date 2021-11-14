@@ -11,6 +11,7 @@ function MainPage() {
       <Switch>
         <Route path="/" exact component={Start} />
         <Route path="/websockets-chat" exact component={Home} />
+
         <Route
           path="/websockets-chat/registration"
           exact

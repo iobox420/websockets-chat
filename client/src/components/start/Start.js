@@ -10,6 +10,7 @@ function Homepage() {
       <div className="homepage">
         <h1 className={'title'}>Andrey Frolov</h1>
         <Libton to={`/websockets-chat`} text={'Chat application'} />
+         <button><a style={{textDecoration: 'none', color: 'inherit'}} href="https://sushi.frolov.store">Sushi store</a></button>
       </div>
     </div>
   );
